@@ -13,7 +13,7 @@
 #     limitations under the License.
 
 import os
-
+import retro
 import click
 import gym
 import neat
@@ -26,7 +26,7 @@ max_env_steps = 200
 
 
 def make_env():
-    return gym.make("CartPole-v0")
+    return retro.make("SonicTheHedgehog-Genesis")
 
 
 def make_net(genome, config, bs):
@@ -43,7 +43,7 @@ def activate_net(net, states):
 def run(n_generations):
     # Load the config file, which is assumed to live in
     # the same directory as this script.
-    config_path = os.path.join(os.path.dirname(__file__), "neat.cfg")
+    config_path = os.path.join(os.path.dirname(file), "neat.cfg")
     config = neat.Config(
         neat.DefaultGenome,
         neat.DefaultReproduction,
@@ -71,5 +71,5 @@ def run(n_generations):
     pop.run(eval_genomes, n_generations)
 
 
-if __name__ == "__main__":
+if name == "main":
     run()  # pylint: disable=no-value-for-parameter

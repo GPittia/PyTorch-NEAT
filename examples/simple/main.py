@@ -43,7 +43,7 @@ def activate_net(net, states):
 def run(n_generations):
     # Load the config file, which is assumed to live in
     # the same directory as this script.
-    config_path = os.path.join(os.path.dirname(file), "neat.cfg")
+    config_path = os.path.join(os.path.dirname(__file__), "neat.cfg")
     config = neat.Config(
         neat.DefaultGenome,
         neat.DefaultReproduction,
@@ -71,5 +71,5 @@ def run(n_generations):
     pop.run(eval_genomes, n_generations)
 
 
-if name == "main":
+if __name__ == "__main__":
     run()  # pylint: disable=no-value-for-parameter
